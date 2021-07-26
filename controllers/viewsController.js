@@ -29,7 +29,7 @@ exports.getTour = catchAsync( async(req, res) => {
     .status(200)
     .set(
       'Content-Security-Policy',
-      'connect-src http://127.0.0.1:3000/api/v1/bookings/checkout-session/ ws://127.0.0.1:53574/ https://*.stripe.com/ https://js.stripe.com/ https://*.tiles.mapbox.com https://api.mapbox.com https://events.mapbox.com'
+      'connect-src https://morning-sea-87111.herokuapp.com/ http://127.0.0.1:3000/api/v1/bookings/checkout-session/ ws://127.0.0.1:53574/ https://*.stripe.com/ https://js.stripe.com/ https://*.tiles.mapbox.com https://api.mapbox.com https://events.mapbox.com'
     )
     .render('tour', {
       title: `${tour.name} Tour`,
@@ -42,7 +42,7 @@ exports.getLoginForm = (req, res) => {
   .status(200)
   .set(
     'Content-Security-Policy',
-    'connect-src ws://127.0.0.1:50212/ http://127.0.0.1:3000/api/v1/users/login http://127.0.0.1:3000/api/v1/users/logout https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'
+    'connect-src https://morning-sea-87111.herokuapp.com/ ws://127.0.0.1:50212/ http://127.0.0.1:3000/api/v1/users/login http://127.0.0.1:3000/api/v1/users/logout https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'
   )
   .render('login', {
     title: 'Log into your account'
