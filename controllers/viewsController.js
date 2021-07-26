@@ -75,7 +75,13 @@ exports.getMyTours = catchAsync(async (req, res, next) => {
   const tourIDs = bookings.map(el => el.tour);
   const tours = await Tour.find({ _id: { $in: tourIDs } });
 
-  res.status(200).render('overview', {
+  res
+  .status(200)
+  .set(
+    'Content-Security-Policy',
+    'connect-src https://morning-sea-87111.herokuapp.com/ ws://127.0.0.1:50212/ http://127.0.0.1:3000/ https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'
+  )
+  .render('overview', {
     title: 'My Tours',
     tours
   });
