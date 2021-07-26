@@ -8,7 +8,13 @@ exports.getOverview = catchAsync(async (req, res) => {
 
     const tours = await Tour.find();
 
-    res.status(200).render('overview', {
+    res
+    .status(200)
+    .set(
+      'Content-Security-Policy',
+      'connect-src https://morning-sea-87111.herokuapp.com/ https://*.stripe.com/ https://js.stripe.com/ https://*.tiles.mapbox.com https://api.mapbox.com https://events.mapbox.com'
+    )
+    .render('overview', {
       title: 'All Tours',
       tours
     });
@@ -50,7 +56,13 @@ exports.getLoginForm = (req, res) => {
 };
 
 exports.getAccount = (req, res) => {
-  res.status(200).render('account', {
+  res
+  .status(200)
+  .set(
+    'Content-Security-Policy',
+    'connect-src https://morning-sea-87111.herokuapp.com/ ws://127.0.0.1:50212/ http://127.0.0.1:3000/ https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'
+  )
+  .render('account', {
     title: 'Your account'
   });
 };
@@ -82,7 +94,13 @@ exports.updateUserData = catchAsync(async (req, res, next) => {
     }
   );
 
-  res.status(200).render('account', {
+  res
+  .status(200)
+  .set(
+    'Content-Security-Policy',
+    'connect-src https://morning-sea-87111.herokuapp.com/ ws://127.0.0.1:50212/ http://127.0.0.1:3000/ https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'
+  )
+  .render('account', {
     title: 'Your account',
     user: updateUser
   });
