@@ -36,7 +36,7 @@ export const logout = async () => {
             })
         }; 
     } catch (err) {
-        // console.log('Error logging out!', err);
+        console.log('Error logging out!', err);
     }
  };
 
