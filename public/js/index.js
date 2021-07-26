@@ -32,7 +32,6 @@ if (loginForm)
     });
 
 if (logOutBtn) {
-    console.log('click');
     logOutBtn.addEventListener("click", logout);
 }
 
@@ -40,9 +39,9 @@ if (logOutBtn) {
 if (filePreview)
     filePreview.addEventListener(
         'change', () => { 
-            console.log(filePreview.files[0]),
-            previewAvatar.src = URL.createObjectURL(filePreview.files[0]),
-            console.log(previewAvatar.src)
+            // console.log(filePreview.files[0]),
+            previewAvatar.src = URL.createObjectURL(filePreview.files[0])
+            // console.log(previewAvatar.src)
             // previewAvatar.src = `/img/users/downloadDefault.jpg`
         },
         false
